@@ -17,13 +17,13 @@ func NewStack() *Stack {
 }
 
 // checks if there are any elements on the stack
-func (stack *Stack) isEmpty() bool {
+func (stack *Stack) IsEmpty() bool {
 	return len(stack.data) == 0
 }
 
 // returns the element at the top of the stack, or else return an error
 func (stack *Stack) Peek() (int, error) {
-	if stack.isEmpty() {
+	if stack.IsEmpty() {
 		return 0, fmt.Errorf("stack is empty")
 	}
 	return stack.data[len(stack.data)-1], nil
@@ -37,7 +37,7 @@ func (stack *Stack) Push(a int) {
 // removes an element from the stack top and returns its value or throws error if stack is empty
 func (stack *Stack) Pop() (int, error) {
 	if len(stack.data) == 0 {
-		return 0, fmt.Errorf("stack is emptpy")
+		return 0, fmt.Errorf("stack is empty")
 	}
 	element := stack.data[len(stack.data)-1]
 	stack.data = stack.data[:len(stack.data)-1]
